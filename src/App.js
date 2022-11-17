@@ -93,7 +93,12 @@ export default function App() {
           the EditProduct element
         */}
         <Route path="/products/:id" element={<ViewProductPage />} />
-        <Route path="/products/:id/edit" element={<EditProductPage />} />
+        <Route
+          path="/products/:id/edit"
+          element={
+            <EditProductPage setProducts={setProducts} products={products} />
+          }
+        />
         <Route
           path="/products"
           element={<ProductsPage products={products} />}
