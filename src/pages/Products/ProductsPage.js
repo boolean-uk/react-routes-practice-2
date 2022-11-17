@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
 function ProductsPage(props) {
-  console.log("Inside ProductsPage: ", { props });
+  console.log('Inside ProductsPage: ', { props })
 
-  const { products } = props;
+  const { products } = props
 
   return (
     <main>
@@ -17,17 +17,19 @@ function ProductsPage(props) {
               <Link to={`/products/${product.id}`} state={{ product }}>
                 View Product
               </Link>
+              <br></br>
+              <Link to={`/products/${product.id}/edit`}>Edit Product</Link>
               {/* 
                 TODO: Add a link to the edit page here 
                 Pass the product data as state in the link, just
                 like we are doing for the view product link above
               */}
             </li>
-          );
+          )
         })}
       </ul>
     </main>
-  );
+  )
 }
 
-export default ProductsPage;
+export default ProductsPage
