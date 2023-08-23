@@ -1,43 +1,42 @@
-import { useEffect, useState } from "react";
+import React, { useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 
-function EditProductPage(props) {
+function EditProductPage({ onUpdateProduct, products }) {
+  const { id } = useParams();
 
-  const [productToUpdate, setProductToUpdate] = useState(null);
+  const navigate = useNavigate(); 
 
-  console.log({ productToUpdate });
+  const [productToUpdate, setProductToUpdate] = useState(
+    products.find((product) => product.id === parseInt(id))
+  );
 
-  //TODO: Write code to set the productToUpdateState
-  //with the product data from the location. 
-  // 
-  //Use useEffect so that when the location changes
-  //you get the product data from the location. See
-  //ViewProductPage.js to check
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setProductToUpdate({
+      ...productToUpdate,
+      [name]: value,
+    });
+  };
 
-  function handleChange(event) {
-    const name = event.target.name;
-    const value = event.target.value;
-
-    setProductToUpdate({ ...productToUpdate, [name]: value });
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onUpdateProduct(productToUpdate);
+    navigate(`/products/${id}`, { state: { product: productToUpdate } });
+  };
 
   if (!productToUpdate) return <div>Loading...</div>;
-
+  
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Product Name</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        onChange={handleChange}
-        value={productToUpdate.name}
-      />
-      <button type="submit">Edit</button>
-    </form>
+    <div>
+      <h2>Edit Product</h2>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="name">Product Name</label>
+        <input type="text" id="name" name="name" onChange={handleChange} value={productToUpdate.name} />
+        <label htmlFor="price">Product Price</label>
+        <input type="number" id="price" name="price" onChange={handleChange} value={productToUpdate.price} />
+        <button type="submit">Save</button>
+      </form>
+    </div>
   );
 }
 

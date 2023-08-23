@@ -1,3 +1,5 @@
+import React from 'react'
+
 function AppsPage(props) {
   console.log("Inside AppsPage: ", { props });
 
