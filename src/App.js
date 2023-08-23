@@ -13,6 +13,7 @@ const productsData = [
     name: "iMac",
     type: "computer",
     price: 1400,
+    imageUrl:"https://images.iskysoft.com/images/blog/6.jpg?_gl=1*yw2s46*_gcl_au*MTM4NzQ1NDI4OC4xNjkyNzgzOTIy*_ga*OTQ5MTIyMDgwLjE2OTI3ODM5MjM.*_ga_24WTSJBD5B*MTY5Mjc4MzkyMi4xLjAuMTY5Mjc4MzkyMi42MC4wLjA.&_ga=2.8189873.2052765823.1692783923-949122080.1692783923",
     inventory: {
       quantity: 100,
       incomingDelivery: false
@@ -23,6 +24,7 @@ const productsData = [
     name: "Macbook Pro",
     type: "computer",
     price: 2000,
+    imageUrl:"https://img-9gag-fun.9cache.com/photo/ayBKxQ8_460s.jpg",
     inventory: {
       quantity: 10,
       incomingDelivery: true
@@ -33,6 +35,7 @@ const productsData = [
     name: "iPad Mini",
     type: "tablet",
     price: 600,
+    imageUrl:"https://i.chzbgr.com/full/6700044032/h425367E5/i-shall-call-him-ipad-mini",
     inventory: {
       quantity: 200,
       incomingDelivery: false
@@ -42,6 +45,7 @@ const productsData = [
     id: 4,
     name: "iPad Pro",
     type: "tablet",
+    imageUrl:"https://i.dailymail.co.uk/i/pix/2015/09/10/03/2C21536200000578-0-image-a-55_1441851935934.jpg",
     price: 800,
     inventory: {
       quantity: 0,

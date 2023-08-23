@@ -13,6 +13,7 @@ function ProductsPage(props) {
           return (
             <li key={index}>
               <h3>{product.name}</h3>
+              <img src={product.imageUrl} alt={product.name} style={{ width: "150px", height: "auto" }} />  {/* Display meme*/}
               <p>£{product.price}</p>
               <Link to={`/products/${product.id}`} state={{ product }}>
                 View Product
