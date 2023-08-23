@@ -8,26 +8,25 @@ function ProductsPage(props) {
   return (
     <main>
       <h2>Products</h2>
-      <ul>
+      <div className="products-container">
         {products.map((product, index) => {
           return (
-            <li key={index}>
+            <div className="product-item" key={index}>
               <h3>{product.name}</h3>
-              <img src={product.imageUrl} alt={product.name} style={{ width: "150px", height: "auto" }} />  {/* Display meme*/}
+              <img src={product.imageUrl} alt={product.name} style={{ width: "150px", height: "auto" }} />
               <p>£{product.price}</p>
               <Link to={`/products/${product.id}`} state={{ product }}>
                 View Product
               </Link>
-              &nbsp;&nbsp; {/* Adding space between View and Edit so it looks better*/}
-              <Link to={`/products/${product.id}/edit`} state={{ product }}> 
+              &nbsp;&nbsp;
+              <Link to={`/products/${product.id}/edit`} state={{ product }}>
                 Edit Product
               </Link>
-            </li>
+            </div>
           );
         })}
-      </ul>
+      </div>
     </main>
   );
-}
-
-export default ProductsPage;
+      }
+export default ProductsPage
