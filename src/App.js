@@ -5,6 +5,7 @@ import Home from "./pages/Home/Home";
 import ProductsPage from "./pages/Products/ProductsPage";
 import ViewProductPage from "./pages/ViewProduct/ViewProductPage";
 import "./styles.css";
+import EditProductPage from "./pages/EditProduct/EditProduct"; //adding import
 
 const productsData = [
   {
@@ -70,6 +71,14 @@ export default function App() {
 
   console.log({ products, apps });
 
+  //function for updated product
+  function updateProduct(updatedProduct) {
+    setProducts(prevProducts => {
+      return prevProducts.map(product =>
+        product.id === updatedProduct.id ? updatedProduct : product)
+    })
+  }
+
   return (
     <div className="App">
       <header>
@@ -84,13 +93,9 @@ export default function App() {
             </li>
           </ul>
         </nav>
-      </header>
+      </header> 
       <Routes>
-        {/* 
-          TODO: add your route for editing a product here. The 
-          Route should be /products/:id/edit and it should use
-          the EditProduct element
-        */}
+        <Route path="/products/:id/edit" element={<EditProductPage updateProduct={updateProduct}/>} />
         <Route path="/products/:id" element={<ViewProductPage />} />
         <Route path="/products" element={<ProductsPage products={products} />}/>
         <Route path="/" element={<Home />} />
